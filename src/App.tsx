@@ -18,21 +18,21 @@ function App() {
   const handleLogout = () => {
     setIsLoggedIn(false);
     localStorage.removeItem('token');
-    navigate('/login');
+    navigate('/dangun/login');
   };
 
   const handleLogin = () => {
     setIsLoggedIn(true);
-    navigate('/jobs');
+    navigate('/dangun/jobs');
   };
 
   const handleSignup = () => {
     setIsLoggedIn(true);
-    navigate('/jobs');
+    navigate('/dangun/jobs');
   };
 
   // Hide NavBar on login/signup pages
-  const hideNav = location.pathname === '/login' || location.pathname === '/signup';
+  const hideNav = location.pathname === '/dangun/login' || location.pathname === '/dangun/signup';
 
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#fff' }}>
@@ -43,15 +43,15 @@ function App() {
         margin: '0 auto'
       }}>
         <Routes>
-          <Route path="/" element={<Navigate to="/jobs" replace />} />
-          <Route path="/jobs" element={<Home/>}/>
-          <Route path="/posts/:id" element={<PostDetail/>}/>
-          <Route path="/chat" element={<ChatList />} />
-          <Route path="/chat/:chatId" element={<ChatRoom />} />
-          <Route path="/my" element={<MyCarrot />} />
+          <Route path="/" element={<Navigate to="/dangun/jobs" replace />} />
+          <Route path="/dangun/jobs" element={<Home/>}/>
+          <Route path="/dangun/posts/:id" element={<PostDetail/>}/>
+          <Route path="/dangun/chat" element={<ChatList />} />
+          <Route path="/dangun/chat/:chatId" element={<ChatRoom />} />
+          <Route path="/dangun/my" element={<MyCarrot />} />
           
-          <Route path="/login" element={<Login onLogin={handleLogin} />} />
-          <Route path="/signup" element={<Signup onSignup={handleSignup} />} />
+          <Route path="/dangun/login" element={<Login onLogin={handleLogin} />} />
+          <Route path="/dangun/signup" element={<Signup onSignup={handleSignup} />} />
         </Routes>
       </div>
     </div>
